@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130113010614) do
+ActiveRecord::Schema.define(:version => 20130114173715) do
+
+  create_table "breweries", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "email"
+    t.string   "phone_number"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.integer  "user_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "breweries", ["user_id"], :name => "index_breweries_on_user_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
