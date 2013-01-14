@@ -1,11 +1,14 @@
 CheveMakers2::Application.routes.draw do
+  
   authenticated :user do
     root to: 'static_pages#home'
   end
   root to: 'static_pages#home'
   
   devise_for :users
-  resources :users
+  resources :users do
+    resources :breweries
+  end
 
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
