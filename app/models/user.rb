@@ -11,5 +11,5 @@ class User < ActiveRecord::Base
 	validates_presence_of :name
 	validates_uniqueness_of :email, :case_sensitive => false  
 
-  has_one :brewery, dependent: :destroy
+  has_one :brewery
 end
