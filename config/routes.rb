@@ -7,7 +7,7 @@ CheveMakers2::Application.routes.draw do
   
   devise_for :users
   resources :users do
-    resources :breweries
+    resource :profile
   end
 
   match '/help',    to: 'static_pages#help'
