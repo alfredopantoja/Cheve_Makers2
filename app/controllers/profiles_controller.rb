@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
 	before_filter :find_user
+  before_filter :correct_user, only: [:destroy, :edit]
 
   def index
   	@profiles = Profile.all
@@ -48,5 +49,9 @@ class ProfilesController < ApplicationController
   	def find_user
   		@user = User.find(params[:user_id])
   	end
+
+    def correct_user
+      redirect_to root_url unless current_user == User.find(params[:user_id])
+    end
 
 end
