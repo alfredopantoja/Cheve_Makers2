@@ -1,2 +1,7 @@
-<h1>Breweries#index</h1>
-<p>Find me in app/views/breweries/index.html.erb</p>
+<h1>All yo breweries!</h1>
+<% @breweries.each do |brewery| %>
+	<p><%= brewery.name %></p>
+	<p><%= brewery.description %></p>
+	<%= link_to "Edit" %>
+	<%= link_to "Delete" %>
+<% end %>
